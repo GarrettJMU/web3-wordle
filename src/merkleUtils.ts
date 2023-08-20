@@ -11,7 +11,7 @@ const getRoot = (tree: MerkleTree) => {
   return tree.getRoot().toString('hex');
 };
 
-export const verifyLeaf = (address: string, tree: MerkleTree) => {
+export const verifyLeaf = (tree: MerkleTree, address: string) => {
   const root = getRoot(tree);
   const leaf = sha256(address);
   const proof = tree.getProof(leaf);
