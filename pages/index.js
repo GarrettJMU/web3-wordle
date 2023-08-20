@@ -1,21 +1,26 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import ScreenHeader from '../src/components/ScreenHeader';
+import GameScreen from '../src/GameScreen';
+import {WagmiConfig} from 'wagmi';
+import {config} from '../src/chainUtils';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Expo + Next.js 👋</Text>
-    </View>
-  );
+    return (
+        <WagmiConfig config={config}>
+            <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
+                    <ScreenHeader/>
+                    <GameScreen/>
+                </SafeAreaView>
+            </View>
+        </WagmiConfig>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 16,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#000',
+    },
 });
