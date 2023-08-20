@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {useAccount, useConnect} from 'wagmi';
 import {InjectedConnector} from 'wagmi/connectors/injected';
 import {fetchEnsName} from '../chainUtils';
+import Button from "./Button";
 
 const ScreenHeader = () => {
   const [ensName, setEnsName] = useState('');
@@ -25,7 +26,7 @@ const ScreenHeader = () => {
       {address && (
         <Text style={styles.subtitle}>Connected to {ensName || address}</Text>
       )}
-      {!address && <button onClick={() => connect()}>Connect Wallet</button>}
+      {!address && <Button onPress={() => connect()} cta="Connect Wallet"/>}
     </View>
   );
 };
